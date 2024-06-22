@@ -1,0 +1,20 @@
+{
+  "providerId": "spookhost.xyz",
+  "providerName": "Spookhost",
+  "serviceId": "ssl-verification",
+  "serviceName": "Spookhost SSL Verification Records",
+  "version": 1,
+  "logoUrl": "https://spookhost.xyz/assets/img/logo.png",
+  "description": "Add GoGetSSL CNAME Verification Records for easier installation process to users. The host is not constant and differs in each certificate order (this is a GoGetSSL implementation, we can do nothing about it). The host is set to @, assuming it can be changed via the host variable in the DNS service provider",
+  "variableDescription": "verificationValue: CNAME Record provided by GoGetSSL for certificate verification process",
+  "syncPubKeyDomain": "spookhost.xyz",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%verificationValue%",
+      "ttl": 600
+    }
+  ]
+}
