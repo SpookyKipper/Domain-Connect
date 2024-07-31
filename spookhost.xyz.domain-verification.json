@@ -1,0 +1,21 @@
+{
+  "providerId": "spookhost.xyz",
+  "providerName": "Spookhost",
+  "serviceId": "domain-verification",
+  "serviceName": "Spookhost Domain Verification Records",
+  "version": 1,
+  "logoUrl": "https://spookhost.xyz/assets/img/logo.png",
+  "description": "Add CNAME records for users who opt-in for CNAME Domain Verification (other options include nameserver verification, therefore this is not part of the domain-setup service template)",
+  "variableDescription": "cnameHost: CNAME host for domain ownership verification provided by distributor (Spookhost is a reseller) | The old record being deleted when applying this template again is OK, since the only 1 verification value will be given for each domain.",
+  "syncPubKeyDomain": "easysetup.spookhost.xyz",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnameHost%",
+      "pointsTo": "ns1.byet.org.",
+      "ttl": 180,
+      "essential": "OnApply"
+    }
+  ]
+}

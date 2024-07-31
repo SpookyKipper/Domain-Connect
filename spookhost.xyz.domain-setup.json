@@ -1,0 +1,28 @@
+{
+  "providerId": "spookhost.xyz",
+  "providerName": "Spookhost",
+  "serviceId": "domain-setup",
+  "serviceName": "Spookhost Domain Setup Records",
+  "version": 1,
+  "logoUrl": "https://spookhost.xyz/assets/img/logo.png",
+  "description": "Add required A records for the website to function.",
+  "variableDescription": "websiteip: The hosting server ip that is assigned to the website",
+  "syncPubKeyDomain": "easysetup.spookhost.xyz",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%websiteip%",
+      "ttl": 14400,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%websiteip%",
+      "ttl": 14400,
+      "essential": "Always"
+    }
+  ]
+}

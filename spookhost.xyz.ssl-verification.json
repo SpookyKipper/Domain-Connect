@@ -5,16 +5,17 @@
   "serviceName": "Spookhost SSL Verification Records",
   "version": 1,
   "logoUrl": "https://spookhost.xyz/assets/img/logo.png",
-  "description": "Add GoGetSSL CNAME Verification Records for easier installation process to users. The host is not constant and differs in each certificate order (this is a GoGetSSL implementation, we can do nothing about it). The host is set to @, assuming it can be changed via the host variable in the DNS service provider",
-  "variableDescription": "verificationValue: CNAME Record provided by GoGetSSL for certificate verification process",
-  "syncPubKeyDomain": "spookhost.xyz",
+  "description": "Add GoGetSSL CNAME Verification Records for easier installation process to users.",
+  "variableDescription": "hostValue: CNAME Host provided by GoGetSSL | verificationValue: CNAME Record provided by GoGetSSL for certificate verification process | Both variables are not constant and changes every time when provided by GoGetSSL | The old record being deleted when applying this template again is OK, since the previous verification values will not be reused when requesting a new certificate.",
+  "syncPubKeyDomain": "easysetup.spookhost.xyz",
   "syncBlock": false,
   "records": [
     {
-      "type": "TXT",
-      "host": "@",
-      "data": "%verificationValue%",
-      "ttl": 600
+      "type": "CNAME",
+      "host": "%hostValue%",
+      "pointsTo": "%verificationValue%",
+      "ttl": 450,
+      "essential": "OnApply"
     }
   ]
 }
